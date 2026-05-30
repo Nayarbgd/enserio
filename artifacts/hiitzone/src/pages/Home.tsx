@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Menu, X, Target, Diamond, Zap, Flame, Dumbbell, Brain, Leaf, 
-  ShieldCheck, MapPin, Phone, Mail, Instagram, MessageCircle, Play 
+  ShieldCheck, MapPin, Phone, Mail, Instagram, MessageCircle, Play, Star
 } from "lucide-react";
+import afrozImg from "@assets/image_1780174766920.png";
+import bouchaImg from "@assets/image_1780174812055.png";
+import prajanImg from "@assets/image_1780174836450.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -313,57 +316,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. TESTIMONIALS */}
+      {/* 8. GOOGLE REVIEWS */}
       <section className="py-32 bg-secondary/30 border-y border-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
-              Results
+              Google Reviews
             </div>
-            <h2 className="text-6xl md:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
-              The Transformation
+            <h2 className="text-6xl md:text-8xl font-heading leading-none mb-4" style={{ letterSpacing: '0.04em' }}>
+              What Our Members Say
             </h2>
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                ))}
+              </div>
+              <span className="text-white font-bold text-lg ml-1">5.0</span>
+              <span className="text-muted-foreground text-sm ml-1">on Google</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                name: "James R.",
-                dur: "12 WEEKS",
-                quote: "HIITZONE didn't just change my body; it rewired my mindset for success. The intensity here is unmatched anywhere in Dubai.",
-                tag: "-15KG FAT / +5KG MUSCLE"
+                name: "Afroz Khan",
+                time: "7 months ago",
+                img: afrozImg,
+                reviews: "4 reviews · 2 photos",
+                text: "This gym is one of the best places to transform yourself and achieve your fitness goals. It is a professional, well-equipped gym with a great atmosphere. The gym instructor is highly professional, dedicated, and disciplined, always ensuring we stay on track to reach our goals. Through personal training sessions and his constant guidance, I was able to achieve what I had always dreamed of. In just 3 months, I transformed myself with a healthy weight gain of 8 kgs, thanks to his strict monitoring and continuous support."
               },
               {
-                name: "Lina K.",
-                dur: "16 WEEKS",
-                quote: "The atmosphere here is electric. Every session feels like an event. Best decision I've made for my health and sanity.",
-                tag: "POST-PREGNANCY RECOVERY"
+                name: "بوحه بوحه",
+                time: "4 months ago",
+                img: bouchaImg,
+                reviews: "4 reviews · 1 photo",
+                text: "This gym is great and worth joining because the manager is cheerful and friendly. I've been there for two months and I've changed completely, thanks to God and then Captain Sabry, because he helps you with everything, even nutrition. Honestly, Captain, you deserve the best place in Dubai because you have vast experience, and you're also cheerful and help you expertly. Thank you so much for your service."
+              },
+              {
+                name: "Prajan Chettri",
+                time: "5 months ago",
+                img: prajanImg,
+                reviews: "4 reviews · 1 photo",
+                text: "I've been working out at HIIT ZONE for a few months now, and I can honestly say it's been one of the best fitness decisions I've made. The facilities are clean, well-maintained, and always have the equipment I need for a good workout. The trainer #SABRY is super knowledgeable, motivating, and really cares about helping you reach your goals. I've seen real progress and always feel supported. Highly recommend!"
               }
-            ].map((t, i) => (
-              <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.2 }}>
-                <Card className="bg-background border-border overflow-hidden h-full">
-                  <div className="flex aspect-[2/1] border-b border-border">
-                    <div className="flex-1 bg-neutral-900 flex items-center justify-center border-r border-border relative">
-                      <span className="text-white/15 font-semibold text-lg tracking-widest uppercase">Before</span>
+            ].map((review, i) => (
+              <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.15 }}>
+                <Card className="bg-background border-border h-full flex flex-col hover:border-primary/30 transition-colors">
+                  <CardContent className="p-7 flex flex-col gap-5 h-full">
+                    {/* Header */}
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={review.img}
+                        alt={review.name}
+                        className="w-12 h-12 rounded-full object-cover border border-border shrink-0"
+                      />
+                      <div className="min-w-0">
+                        <p className="font-semibold text-white text-sm leading-tight truncate">{review.name}</p>
+                        <p className="text-muted-foreground text-xs mt-0.5">{review.reviews}</p>
+                      </div>
+                      {/* Google G */}
+                      <div className="ml-auto shrink-0">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                      </div>
                     </div>
-                    <div className="flex-1 bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center relative">
-                      <span className="text-primary/40 font-semibold text-lg tracking-widest uppercase">After</span>
+
+                    {/* Stars + date */}
+                    <div className="flex items-center gap-3">
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, s) => (
+                          <Star key={s} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <span className="text-muted-foreground text-xs">{review.time}</span>
                     </div>
-                  </div>
-                  <CardContent className="p-8">
-                    <div className="flex justify-between items-center mb-6">
-                      <span className="text-primary font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>{t.name}</span>
-                      <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold tracking-widest rounded">{t.dur}</span>
-                    </div>
-                    <p className="text-base italic text-muted-foreground mb-6 leading-relaxed">&quot;{t.quote}&quot;</p>
-                    <div className="text-xs font-semibold tracking-[0.22em] text-white/40 uppercase border-t border-white/10 pt-4">
-                      {t.tag}
-                    </div>
+
+                    {/* Review text */}
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                      &ldquo;{review.text}&rdquo;
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Overall rating bar */}
+          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.4 }} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 p-6 bg-background border border-border rounded-xl max-w-lg mx-auto">
+            <div className="text-center sm:border-r sm:border-border sm:pr-6">
+              <p className="text-5xl font-bold text-primary leading-none">5.0</p>
+              <div className="flex gap-0.5 justify-center mt-2">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">Google Rating</p>
+            </div>
+            <div className="sm:pl-6 text-center">
+              <p className="text-white text-sm font-semibold mb-1">Based on real member reviews</p>
+              <p className="text-muted-foreground text-xs leading-relaxed">Verified on Google Maps · Business Bay, Dubai</p>
+              <a href="#" className="inline-flex items-center gap-1.5 mt-3 text-xs text-primary hover:underline font-semibold tracking-wide">
+                View all reviews on Google
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
