@@ -612,13 +612,26 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-7xl md:text-[110px] font-heading leading-none mb-6 drop-shadow-2xl" style={{ letterSpacing: '0.04em' }}>
-              Ready To Transform<br/><span className="text-primary">Your Body?</span>
+            <h2
+              className="text-7xl md:text-[110px] font-heading leading-none mb-6 drop-shadow-2xl"
+              style={{ letterSpacing: '0.04em' }}
+            >
+              Ready To Transform<br />
+              <span className="text-primary">Your Body?</span>
             </h2>
             <p className="text-base md:text-lg text-white/70 font-medium tracking-[0.25em] uppercase mb-14">
               The first step is the hardest. We make the rest inevitable.
             </p>
-            <Button size="lg" className="h-20 px-16 text-base font-semibold uppercase tracking-widest shadow-[0_0_40px_rgba(201,168,76,0.3)] hover:shadow-[0_0_60px_rgba(201,168,76,0.5)] transition-shadow">
+            <Button
+              size="lg"
+              className="h-20 px-16 text-base font-semibold uppercase tracking-widest shadow-[0_0_40px_rgba(201,168,76,0.3)] hover:shadow-[0_0_60px_rgba(201,168,76,0.5)] transition-shadow"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20book%20a%20free%20trial%20at%20HIITZONE%20Gym.",
+                  "_blank"
+                )
+              }
+            >
               Book Your Free Trial
             </Button>
           </motion.div>
@@ -763,11 +776,13 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </footer>
 
       {/* FLOATING WHATSAPP BUTTON */}
-      <a
-        href="#"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]"
-        data-testid="floating-whatsapp"
-      >
+        <a
+          href="https://wa.me/971568445703"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]"
+          data-testid="floating-whatsapp"
+        >
         <MessageCircle size={26} />
       </a>
     </div>
