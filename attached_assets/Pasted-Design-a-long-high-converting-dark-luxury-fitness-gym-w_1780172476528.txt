@@ -1,0 +1,210 @@
+Design a long, high-converting, dark luxury fitness gym website for HIITZONE, 
+an elite HIIT training facility located in Business Bay, Dubai, UAE. 
+The brand colors are deep black (#0A0A0A background), gold/amber (#C9A84C accent), 
+and white text. Use bold condensed typography (similar to Impact or Barlow Condensed). 
+The website is a single long-scroll homepage with the following sections in this 
+exact order from top to bottom:
+
+---
+
+1. TOP URGENCY BAR (full-width, amber background, black text)
+Limited time offer strip: "🔥 FOUNDING MEMBER OFFER — 50% OFF First Month | 
+Ends Sunday" with a small countdown timer on the right side.
+
+---
+
+2. NAVIGATION (sticky, dark background with blur)
+Logo: HIITZONE in gold bold font on the left.
+Center links: HOME | ABOUT | MEMBERSHIP | TRAINERS | CONTACT
+Right: "JOIN NOW" button with amber fill and black text, pill shape.
+
+---
+
+3. HERO SECTION (full viewport height, dark background with gym photo overlay at 
+30% opacity)
+Big bold headline stacked on 2 lines:
+"DISCOVER YOUR
+POWER WITHIN"
+Subheadline below: "ELITE FITNESS EXPERIENCE IN DUBAI"
+Two buttons side by side: 
+- Primary filled amber: "START YOUR TRANSFORMATION"
+- Secondary outlined: "VIEW MEMBERSHIPS"
+Below the buttons, 3 stats in a row with gold numbers:
+"500+ MEMBERS" | "15+ EXPERT TRAINERS" | "ELITE PREMIUM EQUIPMENT"
+
+---
+
+4. TRUST BAR / SOCIAL PROOF LOGOS (dark section, slightly lighter background)
+Centered label: "AS SEEN IN / TRUSTED BY"
+Row of 5 grayscale partner or press logos: Time Out Dubai | Gulf News | 
+Esquire Middle East | Muscle & Fitness | Dubai Sports Council
+(Use placeholder rectangles with logo names as text if no images)
+
+---
+
+5. PHILOSOPHY / ABOUT SECTION (two-column layout)
+Left column: black and white photo of an athlete training intensely.
+Right column:
+- Gold label: "OUR PHILOSOPHY"
+- Bold headline: "DISCIPLINE IS THE FOUNDATION"
+- Body paragraph: "At HIITZONE, we believe elite performance isn't just a goal—
+it's a lifestyle. Located in the heart of Dubai, our facility offers more than 
+just equipment; we provide a curated sanctuary for those who demand excellence 
+in every aspect of their transformation."
+Three feature bullets below with gold icons:
+⬡ PERSONALIZED COACHING — Data-driven approaches tailored to your unique 
+physiology and ambitions.
+💎 PREMIUM TRAINING ENVIRONMENT — Luxury facilities combined with high-performance 
+grit for maximum focus.
+⚡ REAL TRANSFORMATIONS — We don't just promise results; we document the 
+evolution of our members.
+
+---
+
+6. CLASSES / TRAINING PROGRAMS SECTION (dark, full-width)
+Gold label: "WHAT WE OFFER"
+Bold headline: "PROGRAMS BUILT FOR RESULTS"
+4 cards in a horizontal row, each with:
+- Dark card with gold top border accent
+- Icon in gold
+- Program name in bold white
+- Short 2-line description in gray
+Cards: 
+1. 🔥 HIIT TRAINING — Maximum intensity, maximum results. Burn fat in 45 minutes.
+2. 💪 STRENGTH & CONDITIONING — Build raw power with elite periodization plans.
+3. 🧠 MENTAL PERFORMANCE — Coaching for mindset, recovery, and resilience.
+4. 🥗 NUTRITION MASTERY — Custom meal strategies designed around your goals.
+
+---
+
+7. ELITE COACHES SECTION (dark background)
+Gold label: "THE MASTERS"
+Bold headline: "ELITE COACHES"
+Subtext right side: "Learn from the best. Our world-class trainers are experts in 
+biomechanics, nutrition, and mental resilience."
+4 coach cards in a row, each: full dark square photo, name in gold at bottom, 
+specialty tag in small white text.
+Coaches: MARCUS VANCE | SARAH CHEN | DAVID STONE | ARIA KNIGHT
+
+---
+
+8. RESULTS / TESTIMONIALS SECTION (dark background)
+Gold label: "RESULTS"
+Bold headline: "THE TRANSFORMATION"
+2 testimonial cards side by side, each with:
+- Before/After photos on left
+- Duration badge in gold (12 WEEKS / 16 WEEKS)
+- Quote in italic white
+- Name in gold bold
+- Achievement tag in small caps gray
+Card 1: JAMES R. — "HIITZONE didn't just change my body; it rewired my mindset 
+for success. The trainers here are on another level." / -15KG FAT / +5KG MUSCLE
+Card 2: LINA K. — "The atmosphere here is electric. Every session feels like an 
+event. Best decision I've made for my health." / POST-PREGNANCY RECOVERY
+
+---
+
+9. FACILITY / GALLERY SECTION (dark background)
+Gold label: "THE FACILITY"
+Bold headline: "PEAK PERFORMANCE ENVIRONMENT"
+Grid layout with 3 images: 
+- 1 large image left (gym floor with dramatic lighting)
+- 2 stacked smaller images right (kettlebell rack + luxury locker room)
+Short description below: "Over 800 sqm of elite training space. Premium equipment. 
+Private suites. Recovery zone. Everything engineered for performance."
+
+---
+
+10. VIDEO / VIRTUAL TOUR SECTION (full-width dark section)
+Bold headline: "TAKE A TOUR INSIDE HIITZONE"
+Centered 16:9 video player placeholder with play button in gold circle.
+Caption: "See why Dubai's elite choose HIITZONE"
+
+---
+
+11. MEMBERSHIP PLANS / PRICING SECTION (dark background)
+Gold label: "PRICING"
+Bold headline: "MEMBERSHIP PLANS"
+3 pricing cards centered, with middle card highlighted in amber/gold border + 
+"MOST POPULAR" badge:
+Left — ESSENTIAL / 1 MONTH / AED 599 / Features: All Access Training, 
+Locker Room & Steam, 1 Guest Pass/Month / CTA: "GET STARTED" (outlined)
+Center — PERFORMANCE / 3 MONTHS / AED 1,499 / Features: All Access Training, 
+Locker Room & Steam, 3 Guest Passes/Month, 2 PT Sessions / 
+CTA: "GET STARTED" (amber filled) / Badge: "SAVE 20%"
+Right — ELITE / 1 YEAR / AED 4,999 / Features: Unlimited Access 24/7, 
+VIP Recovery Zone, Unlimited Guest Passes, Nutrition Mastery Plan / 
+CTA: "GET STARTED" (outlined)
+Below the cards: small text "Only 12 Elite memberships remaining this month." 
+in amber, with a subtle urgency indicator.
+
+---
+
+12. GUARANTEE / RISK REVERSAL SECTION (full-width, slightly lighter dark background)
+Centered layout:
+Gold shield icon at top
+Bold headline: "THE HIITZONE GUARANTEE"
+Body: "Try any plan risk-free for 7 days. If you're not completely satisfied 
+with your experience, we'll refund your membership — no questions asked."
+CTA button amber: "CLAIM YOUR FREE TRIAL"
+
+---
+
+13. FAQ SECTION (dark background)
+Gold label: "GOT QUESTIONS?"
+Bold headline: "FREQUENTLY ASKED QUESTIONS"
+5 accordion-style rows (closed by default, expand on click), each with a 
+"+" icon in gold:
+Q1: Do I need prior fitness experience to join?
+Q2: What are the gym opening hours?
+Q3: Is personal training included in the membership?
+Q4: Where exactly are you located in Business Bay?
+Q5: Can I pause or cancel my membership?
+
+---
+
+14. FINAL CTA SECTION (full-width, dramatic dark photo background at 40% opacity, 
+centered content)
+Bold headline: "READY TO TRANSFORM YOUR BODY?"
+Subheadline in all caps spaced: "THE FIRST STEP IS THE HARDEST. 
+WE MAKE THE REST INEVITABLE."
+Single large CTA button in amber: "BOOK YOUR FREE TRIAL"
+
+---
+
+15. CONTACT SECTION (dark background, two columns)
+Gold label: "CONNECT"
+Bold headline: "GET IN TOUCH"
+Left column — contact info with icons:
+📍 LOCATION: Business Bay, Dubai, UAE
+📞 PHONE: +971 4 000 0000
+✉ EMAIL: hello@hiitzone.ae
+📸 INSTAGRAM: @hiitzonedubai
+Below contact info: embedded Google Maps placeholder (dark styled map frame)
+Right column — contact form with dark input fields, gold borders on focus:
+Fields: YOUR NAME | EMAIL ADDRESS | SELECT INQUIRY TYPE (dropdown) | YOUR MESSAGE
+Submit button full-width amber: "SEND MESSAGE"
+
+---
+
+16. FOOTER (dark, full-width)
+Left: HIITZONE logo in gold
+Center: navigation links in small white: Home | About | Membership | Trainers | Contact
+Right: social icons in gold (Instagram, TikTok, WhatsApp)
+Bottom strip in slightly lighter dark: 
+"© 2025 HIITZONE. All rights reserved. Business Bay, Dubai, UAE"
+
+---
+
+DESIGN NOTES:
+- Overall aesthetic: ultra-dark luxury gym, cinematic and premium, like a high-end 
+Dubai brand.
+- All section headlines are bold, condensed, uppercase, large (60-80px).
+- Gold section labels above headlines are spaced uppercase, small (14px), amber color.
+- Background is always near-black with subtle texture or noise, never pure white.
+- Buttons: primary = amber fill + black text, secondary = transparent + white border.
+- Images: all black & white or dark-tinted to match the brand.
+- WhatsApp floating button in bottom-right corner (green circle with icon).
+- Mobile-responsive layout with hamburger menu on mobile.
+- Smooth scroll animations: fade-up on section reveal, no excessive effects.
+- Font pairing: Barlow Condensed or similar for headlines, Inter or similar for body.
