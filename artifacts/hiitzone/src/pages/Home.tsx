@@ -7,6 +7,10 @@ import {
 import afrozImg from "@assets/image_1780174766920.png";
 import bouchaImg from "@assets/image_1780174812055.png";
 import prajanImg from "@assets/image_1780174836450.png";
+import coachShehalaImg from "@assets/2026-05-31_01h05_32_1780178130753.png";
+import coachCharitaImg from "@assets/2026-05-31_01h04_44_1780178130755.png";
+import coachAlhamdImg from "@assets/2026-05-31_01h05_04_1780178130756.png";
+import coachSabryImg from "@assets/2026-05-31_01h05_19_1780178130756.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -294,10 +298,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Marcus Vance", role: "Performance Coach", img: IMAGES.coachMarcus },
-              { name: "Sarah Chen", role: "HIIT Specialist", img: IMAGES.coachSarah },
-              { name: "David Stone", role: "Strength Expert", img: IMAGES.coachDavid },
-              { name: "Aria Knight", role: "Nutrition Coach", img: IMAGES.coachAria }
+              { name: "Mohamed Sabry", role: "Head Coach & Founder", img: coachSabryImg, handle: "@mohamedsabry729" },
+              { name: "Charita Rambukwella", role: "Bodybuilding Trainer", img: coachCharitaImg, handle: "@kingslayer_cr" },
+              { name: "Coach Shehala", role: "Fitness & HIIT Coach", img: coachShehalaImg, handle: "@coach_shehala" },
+              { name: "Coach Alhamdolliah", role: "Strength Specialist", img: coachAlhamdImg, handle: "@alhamdolliah9999" }
             ].map((coach, i) => (
               <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }} className="group cursor-pointer">
                 <div className="aspect-square rounded-lg mb-5 border border-white/5 relative overflow-hidden group-hover:border-primary/50 transition-colors">
@@ -309,7 +313,8 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
                 <h3 className="font-heading text-2xl text-primary mb-1" style={{ letterSpacing: '0.06em' }}>{coach.name}</h3>
-                <p className="text-xs text-muted-foreground uppercase tracking-widest">{coach.role}</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">{coach.role}</p>
+                <p className="text-xs text-primary/50 tracking-wide">{coach.handle}</p>
               </motion.div>
             ))}
           </div>
@@ -418,7 +423,12 @@ export default function Home() {
             <div className="sm:pl-6 text-center">
               <p className="text-white text-sm font-semibold mb-1">Based on real member reviews</p>
               <p className="text-muted-foreground text-xs leading-relaxed">Verified on Google Maps · Business Bay, Dubai</p>
-              <a href="#" className="inline-flex items-center gap-1.5 mt-3 text-xs text-primary hover:underline font-semibold tracking-wide">
+                <a 
+href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.0960634,55.1786285,15z/data=!4m19!1m10!3m9!1s0x3e5f6bc68e54da5d:0xae663aed253a617b!2sHiitzone+Gym+in+Barsha+Heights!8m2!3d25.0961156!4d55.1786049!10e5!14m1!1BCg0KCS9tLzAxNnl4NzAB!16s%2Fg%2F11vt7tmmv4!3m7!1s0x3e5f6bc68e54da5d:0xae663aed253a617b!8m2!3d25.0961156!4d55.1786049!9m1!1b1!16s%2Fg%2F11vt7tmmv4?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-3 text-xs text-primary hover:underline font-semibold tracking-wide"
+                >
                 View all reviews on Google
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
