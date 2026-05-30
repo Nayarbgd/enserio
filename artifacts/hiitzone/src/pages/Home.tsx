@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Menu, X, Target, Diamond, Zap, Flame, Dumbbell, Brain, Leaf, 
-  ShieldCheck, MapPin, Phone, Mail, Instagram, MessageCircle, Play, Star
+  ShieldCheck, MapPin, Phone, Mail, Instagram, MessageCircle, Star
 } from "lucide-react";
 import afrozImg from "@assets/image_1780174766920.png";
 import bouchaImg from "@assets/image_1780174812055.png";
@@ -480,32 +480,6 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* 10. VIDEO TOUR */}
-      <section className="py-32 border-y border-white/5 relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${IMAGES.videoBg})` }}
-        />
-        <div className="absolute inset-0 bg-black/80" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-5xl md:text-7xl font-heading leading-none mb-14" style={{ letterSpacing: '0.04em' }}>
-            Take A Tour Inside HIITZONE
-          </h2>
-
-          <motion.div {...fadeUp} className="relative aspect-video w-full max-w-5xl mx-auto bg-black/50 rounded-xl border border-white/10 overflow-hidden flex items-center justify-center group cursor-pointer shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
-            <div className="w-24 h-24 rounded-full bg-primary/20 backdrop-blur-sm border-2 border-primary flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-primary/40">
-              <Play className="w-10 h-10 text-primary ml-2" fill="currentColor" />
-            </div>
-          </motion.div>
-
-          <p className="mt-8 text-muted-foreground tracking-widest uppercase text-xs font-semibold">
-            See why Dubai's elite choose HIITZONE
-          </p>
         </div>
       </section>
 
