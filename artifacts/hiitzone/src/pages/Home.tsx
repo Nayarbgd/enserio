@@ -94,14 +94,14 @@ export default function Home() {
       {/* 1. TOP URGENCY BAR */}
       <div className="w-full bg-primary text-primary-foreground py-2 px-4 flex flex-col sm:flex-row justify-center items-center text-sm font-bold tracking-widest z-50 relative">
         <span className="text-center">FOUNDING MEMBER OFFER &mdash; 50% OFF First Month | Ends Sunday</span>
-        <span className="sm:ml-6 mt-1 sm:mt-0 font-mono text-xs bg-black/20 px-3 py-1 rounded">
-          {String(timeLeft.days).padStart(2, '0')}:{String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+        <span className="sm:ml-6 mt-1 sm:mt-0 font-mono text-xs bg-black/20 px-3 py-1 rounded"> 
+          {String(timeLeft.days).padStart(2, '0')}:{String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')} 
         </span>
       </div>
 
       {/* 2. STICKY NAVIGATION */}
       <nav className="sticky top-0 w-full z-40 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"> 
           <div className="text-3xl font-heading text-primary" data-testid="logo" style={{ letterSpacing: '0.08em' }}>
             HIITZONE
           </div>
@@ -507,7 +507,18 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> 4 Group classes/month</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Locker room access</li>
                 </ul>
-                <Button variant="outline" className="w-full h-12 uppercase font-semibold tracking-widest text-sm">Select Plan</Button>
+                <Button
+                  variant="outline"
+                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Essential%20membership%20at%20HIITZONE%20Gym.",
+                      "_blank"
+                    )
+                  }
+                >
+                  Select Plan
+                </Button>
               </Card>
             </motion.div>
 
@@ -525,7 +536,16 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Premium locker & towel service</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Guest pass (1/month)</li>
                 </ul>
-                <Button className="w-full h-14 uppercase font-semibold tracking-widest text-base">Select Performance</Button>
+                <Button
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Performance%20membership%20at%20HIITZONE%20Gym.",
+                      "_blank"
+                    )
+                  }
+                >
+                  Select Performance
+                </Button>
               </Card>
             </motion.div>
 
@@ -540,7 +560,16 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Recovery zone access</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> VIP event invitations</li>
                 </ul>
-                <Button variant="outline" className="w-full h-12 uppercase font-semibold tracking-widest text-sm">Select Elite</Button>
+                <Button
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Elite%20membership%20at%20HIITZONE%20Gym.",
+                      "_blank"
+                    )
+                  }
+                >
+                  Select Elite
+                </Button>
               </Card>
             </motion.div>
           </div>
