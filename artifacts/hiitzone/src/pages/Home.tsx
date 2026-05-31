@@ -172,10 +172,10 @@ export default function Home() {
           {/* Headline — staggered entrance */}
           <motion.h1
             className="text-5xl sm:text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-6 md:mb-8"
-            style={{ letterSpacing: '0.06em' }}
+            style={{ letterSpacing: '0.06em', willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span
               className="block text-white"
@@ -187,7 +187,6 @@ export default function Home() {
               className="block text-primary"
               style={{
                 textShadow: '0 0 60px rgba(201,168,76,0.55), 0 0 140px rgba(201,168,76,0.25), 0 2px 40px rgba(0,0,0,0.9)',
-                filter: 'drop-shadow(0 0 30px rgba(201,168,76,0.3))',
               }}
             >
               Power Within
@@ -197,9 +196,10 @@ export default function Home() {
           {/* Subtitle */}
           <motion.p
             className="text-sm md:text-xl text-white/65 font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase mb-10 md:mb-14 max-w-xl mx-auto"
+            style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             Elite Fitness Experience in Dubai
           </motion.p>
@@ -207,9 +207,10 @@ export default function Home() {
           {/* Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-20 w-full max-w-sm sm:max-w-none mx-auto"
+            style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           >
             <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest shadow-[0_0_30px_rgba(201,168,76,0.25)]" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
               Start Your Transformation
@@ -222,9 +223,10 @@ export default function Home() {
           {/* Stats */}
           <motion.div
             className="grid grid-cols-3 gap-4 md:gap-20 pt-8 md:pt-12 border-t border-white/10 max-w-3xl mx-auto w-full"
+            style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             {[
               { num: "500+", label: "Members" },
