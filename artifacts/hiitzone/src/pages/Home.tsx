@@ -386,29 +386,29 @@ export default function Home() {
           </div>
 
           {/* Training category tags */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-14 md:mb-20">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-5 mb-14 md:mb-20">
             {[
-              { label: "Boxing Classes", icon: "🥊" },
-              { label: "Weight Training", icon: "🏋️" },
-              { label: "Cardio Exercise", icon: "⚡" },
-              { label: "Personal Training", icon: "🎯" },
+              { label: "Boxing Classes", icon: "🥊", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Boxing%20Classes%20en%20HIITZONE." },
+              { label: "Weight Training", icon: "🏋️", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Weight%20Training%20en%20HIITZONE." },
+              { label: "Cardio Exercise", icon: "⚡", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Cardio%20Exercise%20en%20HIITZONE." },
+              { label: "Personal Training", icon: "🎯", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Personal%20Training%20en%20HIITZONE." },
             ].map((cat, i) => (
-              <motion.div
+              <motion.button
                 key={i}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -3, scale: 1.04 }}
-                className="group cursor-default"
+                whileHover={{ y: -4, scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => window.open(`https://wa.me/971568445703?text=${cat.wa}`, "_blank")}
+                className="group flex items-center gap-3 px-7 py-4 rounded-full border border-primary/30 bg-card hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_28px_rgba(201,168,76,0.22)] transition-all duration-300 cursor-pointer"
               >
-                <div className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-primary/25 bg-card hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(201,168,76,0.18)] transition-all duration-300">
-                  <span className="text-base leading-none">{cat.icon}</span>
-                  <span className="font-semibold uppercase tracking-[0.18em] text-xs text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    {cat.label}
-                  </span>
-                </div>
-              </motion.div>
+                <span className="text-xl leading-none">{cat.icon}</span>
+                <span className="font-semibold uppercase tracking-[0.16em] text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                  {cat.label}
+                </span>
+              </motion.button>
             ))}
           </div>
 
