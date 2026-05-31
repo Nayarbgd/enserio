@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Target, Diamond, Zap, Flame, Dumbbell, Brain, Leaf, 
   ShieldCheck, MapPin, Phone, Mail, Instagram, MessageCircle, Star
@@ -54,6 +54,7 @@ const IMAGES = {
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
 
   useEffect(() => {
     const nextSunday = new Date();
@@ -830,48 +831,205 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 16. FOOTER */}
-      <footer className="bg-background pt-12 md:pt-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
-          <div>
-            <div className="font-heading text-4xl text-primary mb-6" style={{ letterSpacing: '0.08em' }}>
+      <footer className="bg-background border-t border-white/8">
+        {/* Main footer body */}
+        <div className="max-w-7xl mx-auto px-5 md:px-6 pt-16 md:pt-24 pb-14 md:pb-20 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-0">
+          {/* Brand */}
+          <div className="max-w-xs">
+            <div className="font-heading text-5xl text-primary mb-5" style={{ letterSpacing: '0.08em' }}>
               HIITZONE
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            <p className="text-white/40 text-sm leading-relaxed">
               Dubai's elite high-intensity training facility. Uncompromising quality, elite coaching, and a community built on discipline and results.
             </p>
           </div>
 
-          <div className="flex flex-col md:items-end">
-            <h4 className="font-semibold uppercase tracking-widest text-xs mb-6">Connect</h4>
-            <div className="flex gap-4">
-              <a href="https://www.instagram.com/hiitzone.ae?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-ig"><Instagram size={16} /></a>
-              <a href="https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20get%20in%20touch%20with%20HIITZONE%20Gym." target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-wa"><MessageCircle size={16} /></a>
-              <a href="tel:+97156844570" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-phone"><Phone size={16} /></a>
+          {/* Connect */}
+          <div className="flex flex-col items-start md:items-end gap-6">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-primary/40" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white/40">Connect With Us</span>
+              <div className="h-px w-8 bg-primary/40" />
+            </div>
+            <div className="flex gap-5">
+              <a
+                href="https://www.instagram.com/hiitzone.ae?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" rel="noopener noreferrer"
+                className="group w-14 h-14 rounded-full border border-primary/25 bg-white/3 flex items-center justify-center text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(201,168,76,0.35)] hover:scale-110"
+                data-testid="social-ig"
+              >
+                <Instagram size={22} className="transition-transform duration-300 group-hover:scale-110" />
+              </a>
+              <a
+                href="https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20get%20in%20touch%20with%20HIITZONE%20Gym."
+                target="_blank" rel="noopener noreferrer"
+                className="group w-14 h-14 rounded-full border border-primary/25 bg-white/3 flex items-center justify-center text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(201,168,76,0.35)] hover:scale-110"
+                data-testid="social-wa"
+              >
+                <MessageCircle size={22} className="transition-transform duration-300 group-hover:scale-110" />
+              </a>
+              <a
+                href="tel:+97156844570"
+                className="group w-14 h-14 rounded-full border border-primary/25 bg-white/3 flex items-center justify-center text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_24px_rgba(201,168,76,0.35)] hover:scale-110"
+                data-testid="social-phone"
+              >
+                <Phone size={22} className="transition-transform duration-300 group-hover:scale-110" />
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="bg-secondary/50 py-6 border-t border-border">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground uppercase tracking-widest">
-            <p>&copy; {new Date().getFullYear()} HIITZONE FITNESS L.L.C. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+        {/* Bottom bar */}
+        <div className="border-t border-white/8 py-6">
+          <div className="max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[11px] text-white/30 tracking-[0.18em] uppercase">
+              &copy; {new Date().getFullYear()} HIITZONE FITNESS L.L.C. — All Rights Reserved
+            </p>
+            <div className="flex gap-6">
+              <button
+                onClick={() => setLegalModal('privacy')}
+                className="text-[11px] text-white/30 tracking-[0.18em] uppercase hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => setLegalModal('terms')}
+                className="text-[11px] text-white/30 tracking-[0.18em] uppercase hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </button>
             </div>
           </div>
         </div>
       </footer>
 
       {/* FLOATING WHATSAPP BUTTON */}
-        <a
-          href="https://wa.me/971568445703"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]"
-          data-testid="floating-whatsapp"
-        >
+      <a
+        href="https://wa.me/971568445703"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 hover:shadow-[0_0_30px_rgba(37,211,102,0.5)]"
+        data-testid="floating-whatsapp"
+      >
         <MessageCircle size={26} />
       </a>
+
+      {/* LEGAL MODALS */}
+      <AnimatePresence>
+        {legalModal && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              onClick={() => setLegalModal(null)}
+            />
+
+            {/* Modal panel */}
+            <motion.div
+              className="relative z-10 w-full sm:max-w-2xl bg-[#0d0d0d] border border-white/10 rounded-t-2xl sm:rounded-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Modal header */}
+              <div className="flex items-center justify-between px-7 py-6 border-b border-white/8 shrink-0">
+                <div>
+                  <div className="text-[10px] text-primary tracking-[0.3em] uppercase font-semibold mb-1">HIITZONE</div>
+                  <h2 className="font-heading text-2xl md:text-3xl" style={{ letterSpacing: '0.06em' }}>
+                    {legalModal === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => setLegalModal(null)}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-colors"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Modal content */}
+              <div className="overflow-y-auto px-7 py-8 text-white/60 text-sm leading-relaxed space-y-6">
+                {legalModal === 'privacy' ? (
+                  <>
+                    <p className="text-white/40 text-xs tracking-widest uppercase">Last updated: May 2025</p>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Information We Collect</h3>
+                      <p>When you submit a form on our website — such as a free trial request, membership inquiry, or contact form — we collect the information you provide, including your name, email address, and phone number. We do not collect any payment information through this website.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">How We Use Your Information</h3>
+                      <p>Your contact information is used exclusively to respond to your inquiries, schedule your free trial, and communicate about HIITZONE membership and training services. We will never use your data for unrelated marketing purposes without your explicit consent.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Data Privacy & Third Parties</h3>
+                      <p>HIITZONE does not sell, trade, rent, or otherwise transfer your personal information to third parties. We do not share your data with advertisers or external marketing companies.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Analytics & Cookies</h3>
+                      <p>Our website may use standard analytics tools (such as Google Analytics) to understand how visitors interact with the site. These tools may use cookies — small data files stored on your browser — to collect anonymised usage data. You may disable cookies in your browser settings at any time.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Contact</h3>
+                      <p>For any privacy-related questions, you may contact us directly via WhatsApp or through the contact form on this website. We are committed to handling your data with the utmost care and transparency.</p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-white/40 text-xs tracking-widest uppercase">Last updated: May 2025</p>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Membership & Services</h3>
+                      <p>HIITZONE offers gym memberships and personal training services at our facility in Barsha Heights, Dubai. By purchasing a membership or using our services, you agree to comply with all gym rules and guidelines as communicated by our staff. Memberships are non-transferable.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Health & Medical Disclaimer</h3>
+                      <p>High-intensity physical training carries inherent risks. All members and visitors are strongly advised to consult a qualified medical professional before commencing any intense physical activity program. By using HIITZONE facilities, you acknowledge that you are physically capable of participating in the training offered and have sought appropriate medical advice.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Pricing & Membership Changes</h3>
+                      <p>Membership pricing, package structures, and promotional offers are subject to change at any time without prior notice. HIITZONE reserves the right to modify, suspend, or discontinue any service, offer, or membership tier at its discretion. Founding member pricing is locked for the duration of active, uninterrupted membership.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Right to Refuse Service</h3>
+                      <p>HIITZONE reserves the right to refuse service, cancel a membership, or remove any individual from our facility if their conduct is deemed unsafe, disrespectful, or in violation of gym policies. The safety and experience of all members is our priority.</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold uppercase tracking-widest text-xs mb-3 text-primary">Limitation of Liability</h3>
+                      <p>HIITZONE FITNESS L.L.C. shall not be held liable for any personal injury, loss, or damage to property occurring on or around our premises, except where directly caused by our proven negligence. Members train at their own risk and are responsible for using equipment correctly and within their physical capabilities.</p>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Modal footer */}
+              <div className="px-7 py-5 border-t border-white/8 shrink-0">
+                <button
+                  onClick={() => setLegalModal(null)}
+                  className="w-full h-11 rounded-md border border-white/10 text-white/50 text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
