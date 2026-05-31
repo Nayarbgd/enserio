@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Target, Diamond, Zap, Flame, Dumbbell, Brain, Leaf, 
@@ -51,28 +51,79 @@ const IMAGES = {
   finalCta: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1920&q=80",
 };
 
-export default function Home() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
+function getTimeLeft() {
+  const nextSunday = new Date();
+  nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));
+  nextSunday.setHours(23, 59, 59, 999);
+
+  const now = new Date().getTime();
+  const distance = nextSunday.getTime() - now;
+
+  if (distance < 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((distance % (1000 * 60)) / 1000),
+  };
+}
+
+const UrgencyBar = memo(function UrgencyBar() {
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
   useEffect(() => {
-    const nextSunday = new Date();
-    nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));
-    nextSunday.setHours(23, 59, 59, 999);
-
     const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = nextSunday.getTime() - now;
-      if (distance < 0) { clearInterval(timer); return; }
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
-      });
+      setTimeLeft(getTimeLeft());
     }, 1000);
+
     return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="w-full bg-primary text-primary-foreground py-2 px-4 flex flex-col sm:flex-row justify-center items-center text-sm font-bold tracking-widest z-50 relative">
+      <span className="text-center">FOUNDING MEMBER OFFER &mdash; 50% OFF First Month | Ends Sunday</span>
+      <span className="sm:ml-6 mt-1 sm:mt-0 font-mono text-xs bg-black/20 px-3 py-1 rounded">
+        {String(timeLeft.days).padStart(2, "0")}:{String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
+      </span>
+    </div>
+  );
+});
+
+export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [legalModal, setLegalModal] = useState<'privacy' | 'terms' | null>(null);
+  const [heroReady, setHeroReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const heroImage = new Image();
+    heroImage.src = IMAGES.hero;
+
+    const markReady = () => {
+      if (cancelled) return;
+      requestAnimationFrame(() => {
+        if (!cancelled) setHeroReady(true);
+      });
+    };
+
+    if (heroImage.complete) {
+      markReady();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    heroImage.onload = markReady;
+    heroImage.onerror = markReady;
+
+    return () => {
+      cancelled = true;
+      heroImage.onload = null;
+      heroImage.onerror = null;
+    };
   }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -94,12 +145,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
 
       {/* 1. TOP URGENCY BAR */}
-      <div className="w-full bg-primary text-primary-foreground py-2 px-4 flex flex-col sm:flex-row justify-center items-center text-sm font-bold tracking-widest z-50 relative">
-        <span className="text-center">FOUNDING MEMBER OFFER &mdash; 50% OFF First Month | Ends Sunday</span>
-        <span className="sm:ml-6 mt-1 sm:mt-0 font-mono text-xs bg-black/20 px-3 py-1 rounded"> 
-          {String(timeLeft.days).padStart(2, '0')}:{String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')} 
-        </span>
-      </div>
+      <UrgencyBar />
 
       {/* 2. STICKY NAVIGATION */}
       <nav className="sticky top-0 w-full z-40 bg-background/85 backdrop-blur-md border-b border-border">
@@ -182,7 +228,7 @@ export default function Home() {
             className="text-5xl sm:text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-6 md:mb-8"
             style={{ letterSpacing: '0.06em', willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span
@@ -206,7 +252,7 @@ export default function Home() {
             className="text-sm md:text-xl text-white/65 font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase mb-10 md:mb-14 max-w-xl mx-auto"
             style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             Elite Fitness Experience in Dubai
@@ -217,7 +263,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-20 w-full max-w-sm sm:max-w-none mx-auto"
             style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           >
             <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest shadow-[0_0_30px_rgba(201,168,76,0.25)]" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
@@ -233,7 +279,7 @@ export default function Home() {
             className="grid grid-cols-3 gap-4 md:gap-20 pt-8 md:pt-12 border-t border-white/10 max-w-3xl mx-auto w-full"
             style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
             initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.9, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
           >
             {[
