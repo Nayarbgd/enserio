@@ -593,7 +593,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
           <p className="text-base text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
             We are confident in our facility and our coaches. Experience HIITZONE for 7 days risk-free. If you don't feel the difference in the atmosphere, the equipment, and the training quality, we'll refund your membership. No questions asked.
           </p>
-          <Button size="lg" className="h-14 px-10 font-semibold uppercase tracking-widest text-sm">
+          <Button size="lg" className="h-14 px-10 font-semibold uppercase tracking-widest text-sm" onClick={() => window.open("https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20book%20a%20free%20trial%20at%20HIITZONE%20Gym.", "_blank")}>
             Claim Your Free Trial
           </Button>
         </div>
@@ -787,9 +787,9 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
           <div className="flex flex-col md:items-end">
             <h4 className="font-semibold uppercase tracking-widest text-xs mb-6">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-ig"><Instagram size={16} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-wa"><MessageCircle size={16} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-phone"><Phone size={16} /></a>
+              <a href="https://www.instagram.com/hiitzone.ae?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-ig"><Instagram size={16} /></a>
+              <a href="https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20get%20in%20touch%20with%20HIITZONE%20Gym." target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-wa"><MessageCircle size={16} /></a>
+              <a href="tel:+97156844570" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-black transition-colors" data-testid="social-phone"><Phone size={16} /></a>
             </div>
           </div>
         </div>
