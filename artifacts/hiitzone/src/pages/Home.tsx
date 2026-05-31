@@ -127,13 +127,14 @@ export default function Home() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-border p-6 flex flex-col space-y-5 shadow-2xl">
-            <button onClick={() => scrollTo('home')} className="text-left font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>Home</button>
-            <button onClick={() => scrollTo('about')} className="text-left font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>About</button>
-            <button onClick={() => scrollTo('membership')} className="text-left font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>Membership</button>
-            <button onClick={() => scrollTo('trainers')} className="text-left font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>Trainers</button>
-            <button onClick={() => scrollTo('contact')} className="text-left font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>Contact</button>
-            <Button onClick={() => scrollTo('membership')} className="w-full mt-4 font-semibold uppercase tracking-widest" size="lg">Join Now</Button>
+          <div className="md:hidden absolute top-20 left-0 w-full bg-background border-b border-border p-6 flex flex-col space-y-5 shadow-2xl z-50">
+            <button onClick={() => scrollTo('home')} className="text-left font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>Home</button>
+            <button onClick={() => scrollTo('about')} className="text-left font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>About</button>
+            <button onClick={() => scrollTo('membership')} className="text-left font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>Membership</button>
+            <button onClick={() => scrollTo('trainers')} className="text-left font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>Trainers</button>
+            <button onClick={() => scrollTo('contact')} className="text-left font-heading text-2xl" style={{ letterSpacing: '0.06em' }}>Contact</button>
+            <button onClick={() => scrollTo('contact')} className="text-left font-heading text-2xl flex items-center gap-2" style={{ letterSpacing: '0.06em' }}><MapPin className="w-5 h-5 text-primary" />Location</button>
+            <Button onClick={() => scrollTo('membership')} className="w-full mt-2 font-semibold uppercase tracking-widest" size="lg">Join Now</Button>
           </div>
         )}
       </nav>
@@ -147,34 +148,34 @@ export default function Home() {
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/75 via-black/60 to-background" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-32 w-full text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 pt-16 pb-16 md:pt-20 md:pb-32 w-full text-center flex flex-col items-center">
           <motion.div {...fadeUp}>
-            <h1 className="text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-8" style={{ letterSpacing: '0.06em' }}>
+            <h1 className="text-5xl sm:text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-6 md:mb-8" style={{ letterSpacing: '0.06em' }}>
               <span className="block text-white drop-shadow-2xl">Discover Your</span>
               <span className="block text-primary drop-shadow-2xl">Power Within</span>
             </h1>
-            <p className="text-base md:text-xl text-white/70 font-medium tracking-[0.25em] uppercase mb-14 max-w-xl mx-auto">
+            <p className="text-sm md:text-xl text-white/70 font-medium tracking-[0.2em] md:tracking-[0.25em] uppercase mb-10 md:mb-14 max-w-xl mx-auto">
               Elite Fitness Experience in Dubai
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
-              <Button size="lg" className="w-full sm:w-auto h-14 px-10 text-sm font-semibold uppercase tracking-widest" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-20 w-full max-w-sm sm:max-w-none mx-auto">
+              <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
                 Start Your Transformation
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-10 text-sm font-semibold uppercase tracking-widest border-2 hover:bg-white/5" onClick={() => scrollTo('membership')} data-testid="hero-secondary-btn">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest border-2 hover:bg-white/5" onClick={() => scrollTo('membership')} data-testid="hero-secondary-btn">
                 View Memberships
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 pt-12 border-t border-white/15 max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-4 md:gap-20 pt-8 md:pt-12 border-t border-white/15 max-w-3xl mx-auto w-full">
               {[
                 { num: "500+", label: "Members" },
                 { num: "15+", label: "Expert Trainers" },
                 { num: "ELITE", label: "Premium Equipment" }
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-5xl md:text-6xl font-heading text-primary mb-2" style={{ letterSpacing: '0.06em' }}>{stat.num}</div>
-                  <div className="text-xs tracking-[0.22em] uppercase text-white/50">{stat.label}</div>
+                  <div className="text-3xl sm:text-5xl md:text-6xl font-heading text-primary mb-1 md:mb-2" style={{ letterSpacing: '0.06em' }}>{stat.num}</div>
+                  <div className="text-[10px] sm:text-xs tracking-[0.15em] md:tracking-[0.22em] uppercase text-white/50">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -184,8 +185,8 @@ export default function Home() {
 
 
       {/* 5. PHILOSOPHY / ABOUT */}
-      <section id="about" className="py-32 relative">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-16 md:py-32 relative">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div {...fadeUp} className="relative aspect-[4/5] w-full rounded-lg overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(201,168,76,0.08)]">
             <img
               src={IMAGES.about}
@@ -200,10 +201,10 @@ export default function Home() {
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               Our Philosophy
             </div>
-            <h2 className="text-6xl md:text-8xl font-heading leading-none mb-8" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none mb-6 md:mb-8" style={{ letterSpacing: '0.04em' }}>
               Discipline is the Foundation
             </h2>
-            <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
               HIITZONE isn't just a gym; it's a proving ground. We've stripped away the distractions to focus purely on performance, mindset, and unmatched results. In the heart of Business Bay, we forge the elite.
             </p>
 
@@ -229,18 +230,18 @@ export default function Home() {
       </section>
 
       {/* 6. TRAINING PROGRAMS */}
-      <section className="py-32 bg-secondary/30 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+      <section className="py-16 md:py-32 bg-secondary/30 border-t border-border">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="text-center mb-12 md:mb-20">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               What We Offer
             </div>
-            <h2 className="text-6xl md:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
               Programs Built For Results
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {[
               { icon: Flame, title: "HIIT Training", desc: "High-intensity intervals designed to shred fat and push your cardiovascular limits to the absolute edge." },
               { icon: Dumbbell, title: "Strength & Conditioning", desc: "Build raw power and functional strength using elite-grade free weights and specialized equipment." },
@@ -266,23 +267,23 @@ export default function Home() {
       </section>
 
       {/* 7. ELITE COACHES */}
-      <section id="trainers" className="py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      <section id="trainers" className="py-16 md:py-32">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 gap-5 md:gap-8">
             <div>
-              <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
+              <div className="inline-block px-3 py-1 mb-4 md:mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
                 The Masters
               </div>
-              <h2 className="text-6xl md:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
                 Elite Coaches
               </h2>
             </div>
-            <Button variant="outline" className="h-12 px-8 font-semibold uppercase tracking-widest text-sm">
+            <Button variant="outline" className="h-11 md:h-12 px-6 md:px-8 font-semibold uppercase tracking-widest text-sm w-full sm:w-auto">
               Meet The Full Team
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               { name: "Mohamed Sabry", role: "Head Coach & Founder", img: coachSabryImg, handle: "@mohamedsabry729" },
               { name: "Charita Rambukwella", role: "Bodybuilding Trainer", img: coachCharitaImg, handle: "@kingslayer_cr" },
@@ -308,13 +309,13 @@ export default function Home() {
       </section>
 
       {/* 8. GOOGLE REVIEWS */}
-      <section className="py-32 bg-secondary/30 border-y border-border overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+      <section className="py-16 md:py-32 bg-secondary/30 border-y border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="text-center mb-12 md:mb-20">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               Google Reviews
             </div>
-            <h2 className="text-6xl md:text-8xl font-heading leading-none mb-4" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none mb-4" style={{ letterSpacing: '0.04em' }}>
               What Our Members Say
             </h2>
             <div className="flex items-center justify-center gap-2 mt-6">
@@ -424,14 +425,14 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 9. FACILITY GALLERY */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      <section className="py-16 md:py-32">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 gap-5 md:gap-8">
             <div>
-              <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
+              <div className="inline-block px-3 py-1 mb-4 md:mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
                 The Facility
               </div>
-              <h2 className="text-6xl md:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
                 Peak Performance Environment
               </h2>
             </div>
@@ -440,28 +441,28 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             </p>
           </div>
 
-          <motion.div {...fadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-[580px]">
-            <div className="lg:col-span-8 h-full rounded-lg border border-white/5 relative group overflow-hidden">
+          <motion.div {...fadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[580px]">
+            <div className="lg:col-span-8 h-64 sm:h-80 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
               <img src={IMAGES.facilityMain} alt="HIITZONE Main Floor" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 scale-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-8 left-8">
-                <h3 className="font-heading text-4xl mb-1" style={{ letterSpacing: '0.06em' }}>Main Floor</h3>
+              <div className="absolute bottom-5 left-5 md:bottom-8 md:left-8">
+                <h3 className="font-heading text-2xl md:text-4xl mb-1" style={{ letterSpacing: '0.06em' }}>Main Floor</h3>
                 <p className="text-muted-foreground text-xs tracking-widest uppercase">Custom Rogue Rigs & Free Weights</p>
               </div>
             </div>
-            <div className="lg:col-span-4 h-full flex flex-col gap-4">
-              <div className="flex-1 rounded-lg border border-white/5 relative group overflow-hidden">
+            <div className="lg:col-span-4 lg:h-full grid grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="h-44 sm:h-52 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
                 <img src={IMAGES.facilityHiit} alt="HIIT Studio" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-5 left-5">
-                  <h3 className="font-heading text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>HIIT Studio</h3>
+                <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
+                  <h3 className="font-heading text-xl md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>HIIT Studio</h3>
                 </div>
               </div>
-              <div className="flex-1 rounded-lg border border-white/5 relative group overflow-hidden">
+              <div className="h-44 sm:h-52 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
                 <img src={IMAGES.facilityRecovery} alt="Recovery Zone" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-5 left-5">
-                  <h3 className="font-heading text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>Recovery Zone</h3>
+                <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
+                  <h3 className="font-heading text-xl md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>Recovery Zone</h3>
                 </div>
               </div>
             </div>
@@ -470,24 +471,24 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 11. MEMBERSHIP PRICING */}
-      <section id="membership" className="py-32 relative">
+      <section id="membership" className="py-16 md:py-32 relative">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="text-center mb-12 md:mb-20">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               Pricing
             </div>
-            <h2 className="text-6xl md:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
               Membership Plans
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto items-center">
             <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
-              <Card className="bg-background border-border p-8 h-full">
-                <h3 className="font-heading text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Essential</h3>
-                <div className="mb-6"><span className="text-4xl font-bold">AED 599</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Month</span></div>
+              <Card className="bg-background border-border p-6 md:p-8 h-full">
+                <h3 className="font-heading text-2xl md:text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Essential</h3>
+                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-4xl font-bold">AED 599</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Month</span></div>
                 <ul className="space-y-4 mb-8 text-sm text-muted-foreground">
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Full facility access</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> 4 Group classes/month</li>
@@ -511,9 +512,9 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               <div className="absolute -top-4 inset-x-0 flex justify-center">
                 <span className="bg-primary text-primary-foreground text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full shadow-lg">Most Popular &bull; Save 20%</span>
               </div>
-              <Card className="bg-card border-primary shadow-[0_0_50px_rgba(201,168,76,0.18)] p-8 h-full">
-                <h3 className="font-heading text-4xl text-primary mb-2" style={{ letterSpacing: '0.06em' }}>Performance</h3>
-                <div className="mb-6"><span className="text-5xl font-bold">AED 1,499</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 3 Months</span></div>
+              <Card className="bg-card border-primary shadow-[0_0_50px_rgba(201,168,76,0.18)] p-6 md:p-8 h-full">
+                <h3 className="font-heading text-2xl md:text-4xl text-primary mb-2" style={{ letterSpacing: '0.06em' }}>Performance</h3>
+                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-5xl font-bold">AED 1,499</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 3 Months</span></div>
                 <ul className="space-y-4 mb-8 text-sm">
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited facility access</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited group classes</li>
@@ -536,9 +537,9 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             </motion.div>
 
             <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
-              <Card className="bg-background border-border p-8 h-full">
-                <h3 className="font-heading text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Elite</h3>
-                <div className="mb-6"><span className="text-4xl font-bold">AED 4,999</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Year</span></div>
+              <Card className="bg-background border-border p-6 md:p-8 h-full">
+                <h3 className="font-heading text-2xl md:text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Elite</h3>
+                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-4xl font-bold">AED 4,999</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Year</span></div>
                 <ul className="space-y-4 mb-8 text-sm text-muted-foreground">
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited everything</li>
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Priority class booking</li>
@@ -570,29 +571,29 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 12. GUARANTEE */}
-      <section className="py-24 bg-secondary/50 border-y border-border">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <ShieldCheck className="w-14 h-14 text-primary mx-auto mb-8" />
-          <h2 className="text-5xl md:text-6xl font-heading leading-none mb-6" style={{ letterSpacing: '0.04em' }}>
+      <section className="py-16 md:py-24 bg-secondary/50 border-y border-border">
+        <div className="max-w-4xl mx-auto px-5 md:px-6 text-center">
+          <ShieldCheck className="w-12 h-12 md:w-14 md:h-14 text-primary mx-auto mb-6 md:mb-8" />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading leading-none mb-5 md:mb-6" style={{ letterSpacing: '0.04em' }}>
             The HIITZONE Guarantee
           </h2>
-          <p className="text-base text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto">
             We are confident in our facility and our coaches. Experience HIITZONE for 7 days risk-free. If you don't feel the difference in the atmosphere, the equipment, and the training quality, we'll refund your membership. No questions asked.
           </p>
-          <Button size="lg" className="h-14 px-10 font-semibold uppercase tracking-widest text-sm" onClick={() => window.open("https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20book%20a%20free%20trial%20at%20HIITZONE%20Gym.", "_blank")}>
+          <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 font-semibold uppercase tracking-widest text-sm" onClick={() => window.open("https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20book%20a%20free%20trial%20at%20HIITZONE%20Gym.", "_blank")}>
             Claim Your Free Trial
           </Button>
         </div>
       </section>
 
       {/* 13. FAQ ACCORDION */}
-      <section className="py-32">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section className="py-16 md:py-32">
+        <div className="max-w-3xl mx-auto px-5 md:px-6">
+          <div className="text-center mb-10 md:mb-16">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               Got Questions?
             </div>
-            <h2 className="text-5xl md:text-7xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
               Frequently Asked Questions
             </h2>
           </div>
@@ -617,7 +618,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 14. FINAL CTA */}
-      <section className="relative py-44 overflow-hidden">
+      <section className="relative py-24 md:py-44 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${IMAGES.finalCta})` }}
@@ -626,21 +627,21 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent z-0" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-6 text-center">
           <motion.div {...fadeUp}>
             <h2
-              className="text-7xl md:text-[110px] font-heading leading-none mb-6 drop-shadow-2xl"
+              className="text-5xl sm:text-6xl md:text-[110px] font-heading leading-none mb-5 md:mb-6 drop-shadow-2xl"
               style={{ letterSpacing: '0.04em' }}
             >
               Ready To Transform<br />
               <span className="text-primary">Your Body?</span>
             </h2>
-            <p className="text-base md:text-lg text-white/70 font-medium tracking-[0.25em] uppercase mb-14">
+            <p className="text-sm md:text-lg text-white/70 font-medium tracking-[0.2em] md:tracking-[0.25em] uppercase mb-10 md:mb-14">
               The first step is the hardest. We make the rest inevitable.
             </p>
             <Button
               size="lg"
-              className="h-20 px-16 text-base font-semibold uppercase tracking-widest shadow-[0_0_40px_rgba(201,168,76,0.3)] hover:shadow-[0_0_60px_rgba(201,168,76,0.5)] transition-shadow"
+              className="w-full sm:w-auto h-14 md:h-20 px-10 md:px-16 text-sm md:text-base font-semibold uppercase tracking-widest shadow-[0_0_40px_rgba(201,168,76,0.3)] hover:shadow-[0_0_60px_rgba(201,168,76,0.5)] transition-shadow"
               onClick={() =>
                 window.open(
                   "https://wa.me/971568445703?text=Hi!%20I%20would%20like%20to%20book%20a%20free%20trial%20at%20HIITZONE%20Gym.",
@@ -655,13 +656,13 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 15. CONTACT SECTION */}
-      <section id="contact" className="py-32 border-t border-border bg-secondary/20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section id="contact" className="py-16 md:py-32 border-t border-border bg-secondary/20">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
+            <div className="inline-block px-3 py-1 mb-5 md:mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               Get In Touch
             </div>
-            <h2 className="text-6xl md:text-7xl font-heading leading-none mb-10" style={{ letterSpacing: '0.04em' }}>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading leading-none mb-8 md:mb-10" style={{ letterSpacing: '0.04em' }}>
               Command Your Space
             </h2>
 
@@ -765,8 +766,8 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 16. FOOTER */}
-      <footer className="bg-background pt-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <footer className="bg-background pt-12 md:pt-20 border-t border-border">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
           <div>
             <div className="font-heading text-4xl text-primary mb-6" style={{ letterSpacing: '0.08em' }}>
               HIITZONE
