@@ -570,7 +570,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                     )
                   }
                 >
-                  Select Plan
+                  Select Essential
                 </Button>
               </Card>
             </motion.div>
