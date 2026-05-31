@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Menu, X, Target, Diamond, Zap, Flame, Dumbbell, Brain, Leaf, 
@@ -50,6 +50,58 @@ const IMAGES = {
   videoBg: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1920&q=80",
   finalCta: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1920&q=80",
 };
+
+const PROGRAMS = [
+  { icon: Flame, title: "HIIT Training", desc: "High-intensity intervals designed to shred fat and push your cardiovascular limits to the absolute edge." },
+  { icon: Dumbbell, title: "Strength & Conditioning", desc: "Build raw power and functional strength using elite-grade free weights and specialized equipment." },
+  { icon: Brain, title: "Mental Performance", desc: "Rewire your mindset. Focus, discipline, and endurance training for high-performing individuals." },
+  { icon: Leaf, title: "Nutrition Mastery", desc: "Bespoke fuel protocols. What you do outside the gym matters just as much as what you do inside." }
+] as const;
+
+const MEMBERSHIP_PLANS = [
+  {
+    name: "Essential",
+    price: "AED 599",
+    period: "/ 1 Month",
+    titleClass: "font-heading text-2xl md:text-3xl text-muted-foreground mb-2",
+    priceClass: "text-3xl md:text-4xl font-bold",
+    listClass: "space-y-4 mb-8 text-sm text-muted-foreground",
+    wrapperClass: "",
+    cardClass: "bg-background border-border p-6 md:p-8 h-full",
+    badge: null,
+    cta: "Select Essential",
+    wa: "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Essential%20membership%20at%20HIITZONE%20Gym.",
+    features: ["Full facility access", "4 Group classes/month", "Locker room access"]
+  },
+  {
+    name: "Performance",
+    price: "AED 1,499",
+    period: "/ 3 Months",
+    titleClass: "font-heading text-2xl md:text-4xl text-primary mb-2",
+    priceClass: "text-3xl md:text-5xl font-bold",
+    listClass: "space-y-4 mb-8 text-sm",
+    wrapperClass: "relative z-10 md:-my-4",
+    cardClass: "bg-card border-primary shadow-[0_0_50px_rgba(201,168,76,0.18)] p-6 md:p-8 h-full",
+    badge: "Most Popular • Save 20%",
+    cta: "Select Performance",
+    wa: "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Performance%20membership%20at%20HIITZONE%20Gym.",
+    features: ["Unlimited facility access", "Unlimited group classes", "1 Personal training session/mo", "Premium locker & towel service", "Guest pass (1/month)"]
+  },
+  {
+    name: "Elite",
+    price: "AED 4,999",
+    period: "/ 1 Year",
+    titleClass: "font-heading text-2xl md:text-3xl text-muted-foreground mb-2",
+    priceClass: "text-3xl md:text-4xl font-bold",
+    listClass: "space-y-4 mb-8 text-sm text-muted-foreground",
+    wrapperClass: "",
+    cardClass: "bg-background border-border p-6 md:p-8 h-full",
+    badge: null,
+    cta: "Select Elite",
+    wa: "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Elite%20membership%20at%20HIITZONE%20Gym.",
+    features: ["Unlimited everything", "Priority class booking", "Dedicated private locker", "Recovery zone access", "VIP event invitations"]
+  }
+] as const;
 
 function getTimeLeft() {
   const nextSunday = new Date();
@@ -135,11 +187,11 @@ export default function Home() {
     console.log(values);
   }
 
-  const scrollTo = (id: string) => {
+  const scrollTo = useCallback((id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
@@ -343,7 +395,8 @@ export default function Home() {
       </section>
 
       {/* 6. TRAINING PROGRAMS */}
-      <section className="relative py-16 md:py-32 overflow-hidden border-t border-border">
+
+      <section className="relative py-16 md:py-32 overflow-hidden border-t border-border perf-section">
         {/* Cinematic background image */}
         <motion.div
           className="absolute inset-0 z-0"
@@ -377,6 +430,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6">
           <div className="text-center mb-12 md:mb-16">
+
+      <section className="py-16 md:py-32 bg-secondary/30 border-t border-border perf-section">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="text-center mb-12 md:mb-20">
+
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               What We Offer
             </div>
@@ -413,14 +471,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {[
-              { icon: Flame, title: "HIIT Training", desc: "High-intensity intervals designed to shred fat and push your cardiovascular limits to the absolute edge." },
-              { icon: Dumbbell, title: "Strength & Conditioning", desc: "Build raw power and functional strength using elite-grade free weights and specialized equipment." },
-              { icon: Brain, title: "Mental Performance", desc: "Rewire your mindset. Focus, discipline, and endurance training for high-performing individuals." },
-              { icon: Leaf, title: "Nutrition Mastery", desc: "Bespoke fuel protocols. What you do outside the gym matters just as much as what you do inside." }
-            ].map((prog, i) => (
+            {PROGRAMS.map((prog, i) => (
               <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <Card className="bg-background border-t-2 border-t-primary border-x-border border-b-border h-full hover:bg-secondary/50 transition-colors group">
+                <Card className="bg-background border-t-2 border-t-primary border-x-border border-b-border h-full hover:bg-secondary/50 transition-colors group perf-card">
                   <CardHeader>
                     <prog.icon className="w-9 h-9 text-primary mb-4 group-hover:scale-110 transition-transform" />
                     <CardTitle className="font-heading text-3xl" style={{ letterSpacing: '0.06em' }}>{prog.title}</CardTitle>
@@ -653,7 +706,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
       </section>
 
       {/* 11. MEMBERSHIP PRICING */}
-      <section id="membership" className="py-16 md:py-32 relative">
+      <section id="membership" className="py-16 md:py-32 relative perf-section">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-5 md:px-6">
@@ -666,7 +719,8 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6 perf-section">
             {[
               {
                 label: "1 Month",
@@ -757,6 +811,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                     onClick={() => window.open(`https://wa.me/971568445703?text=${plan.waMsg}`, "_blank")}
                   >
                     Select Plan
+
                   </Button>
                 </Card>
               </motion.div>
