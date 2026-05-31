@@ -146,6 +146,14 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${IMAGES.hero})` }} />
 
+        {/* Reveal: fades from black to transparent on load */}
+        <motion.div
+          className="absolute inset-0 z-[2] bg-black pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 2.2, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+        />
+
         {/* Darker cinematic overlay */}
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/88 via-black/72 to-background" />
 
