@@ -181,21 +181,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. TRUST BAR */}
-      <section className="bg-secondary/50 py-14 border-y border-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10 text-xs tracking-[0.3em] text-muted-foreground font-semibold uppercase">
-            As Seen In / Trusted By
-          </div>
-          <div className="flex flex-wrap justify-center items-center gap-5 md:gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {["Time Out Dubai", "Gulf News", "Esquire Middle East", "Muscle & Fitness", "Dubai Sports Council"].map((brand) => (
-              <div key={brand} className="px-5 py-3 border border-border/50 bg-background/50 rounded flex items-center justify-center font-semibold text-sm tracking-widest text-muted-foreground hover:text-white transition-colors uppercase" data-testid={`trust-logo-${brand}`}>
-                {brand}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 5. PHILOSOPHY / ABOUT */}
       <section id="about" className="py-32 relative">
