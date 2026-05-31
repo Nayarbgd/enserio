@@ -407,7 +407,7 @@ export default function Home() {
             </div>
             <div className="sm:pl-6 text-center">
               <p className="text-white text-sm font-semibold mb-1">Based on real member reviews</p>
-              <p className="text-muted-foreground text-xs leading-relaxed">Verified on Google Maps · Business Bay, Dubai</p>
+              <p className="text-muted-foreground text-xs leading-relaxed">Verified on Google Maps · Barsha Heights, Dubai</p>
                 <a 
 href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.0960634,55.1786285,15z/data=!4m19!1m10!3m9!1s0x3e5f6bc68e54da5d:0xae663aed253a617b!2sHiitzone+Gym+in+Barsha+Heights!8m2!3d25.0961156!4d55.1786049!10e5!14m1!1BCg0KCS9tLzAxNnl4NzAB!16s%2Fg%2F11vt7tmmv4!3m7!1s0x3e5f6bc68e54da5d:0xae663aed253a617b!8m2!3d25.0961156!4d55.1786049!9m1!1b1!16s%2Fg%2F11vt7tmmv4?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
@@ -666,10 +666,10 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
 
             <div className="space-y-7 mb-12">
               {[
-                { icon: MapPin, label: "Location", value: "Apex Tower, Ground Floor, Business Bay, Dubai" },
-                { icon: Phone, label: "Phone", value: "+971 4 123 4567" },
+                { icon: MapPin, label: "Location", value: "Hazani Building - Al Thanyah First - Barsha Heights - Dubai" },
+                { icon: Phone, label: "Phone", value: "+971 568 445 703" },
                 { icon: Mail, label: "Email", value: "elite@hiitzone.ae" },
-                { icon: Instagram, label: "Instagram", value: "@hiitzonedubai" }
+                { icon: Instagram, label: "Instagram", value: "@hiitzone.ae" }
               ].map(({ icon: Icon, label, value }, i) => (
                 <div key={i} className="flex gap-4 items-center text-muted-foreground hover:text-white transition-colors">
                   <div className="w-11 h-11 bg-card border border-border flex items-center justify-center rounded shrink-0">
@@ -683,9 +683,24 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               ))}
             </div>
 
-            <div className="aspect-[4/3] bg-neutral-900 border border-border rounded-lg relative overflow-hidden flex items-center justify-center">
-              <div className="text-muted-foreground/20 font-heading text-3xl uppercase tracking-widest" style={{ letterSpacing: '0.06em' }}>Map Placeholder</div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+            <div className="aspect-[4/3] border border-border rounded-lg relative overflow-hidden">
+              <img
+                src="https://res.cloudinary.com/djepsudop/image/upload/v1780199182/ChatGPT_Image_31_may_2026_07_43_18_a.m._kgbvot.png"
+                alt="HIITZONE Gym - Barsha Heights, Dubai"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-0 right-0 flex justify-center">
+                <a
+                  href="https://maps.google.com/?q=35WH%2BCC+Dubai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-primary text-black font-semibold uppercase tracking-widest text-xs px-6 py-3 rounded shadow-lg hover:brightness-110 transition-all"
+                >
+                  <MapPin className="w-4 h-4" />
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
           </div>
 
