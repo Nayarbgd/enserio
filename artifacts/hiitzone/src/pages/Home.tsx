@@ -112,6 +112,7 @@ export default function Home() {
             <button onClick={() => scrollTo('membership')} className="hover:text-primary transition-colors">Membership</button>
             <button onClick={() => scrollTo('trainers')} className="hover:text-primary transition-colors">Trainers</button>
             <button onClick={() => scrollTo('contact')} className="hover:text-primary transition-colors">Contact</button>
+            <button onClick={() => scrollTo('contact')} className="hover:text-primary transition-colors flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" />Location</button>
           </div>
 
           <div className="hidden md:block">
