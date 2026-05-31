@@ -613,9 +613,6 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                 Peak Performance Environment
               </h2>
             </div>
-            <p className="max-w-sm text-muted-foreground text-right hidden md:block text-sm leading-relaxed">
-              State-of-the-art equipment. Bespoke lighting. Audiophile sound system. Designed for those who demand excellence.
-            </p>
           </div>
 
           <motion.div {...fadeUp} className="grid grid-cols-2 lg:grid-cols-12 gap-4">
