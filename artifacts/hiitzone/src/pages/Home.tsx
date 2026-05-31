@@ -343,8 +343,39 @@ export default function Home() {
       </section>
 
       {/* 6. TRAINING PROGRAMS */}
-      <section className="py-16 md:py-32 bg-secondary/30 border-t border-border">
-        <div className="max-w-7xl mx-auto px-5 md:px-6">
+      <section className="relative py-16 md:py-32 overflow-hidden border-t border-border">
+        {/* Cinematic background image */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ scale: 1.08 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 2.4, ease: "easeOut" }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(https://res.cloudinary.com/djepsudop/image/upload/v1780266370/d417e080-6281-4e5c-b8f4-72bcd39876a5_cmnrdu.png)`,
+              filter: "grayscale(100%) contrast(1.15) brightness(0.38)",
+            }}
+          />
+        </motion.div>
+        {/* Grain texture overlay */}
+        <div
+          className="absolute inset-0 z-[1] opacity-[0.18] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '128px 128px',
+          }}
+        />
+        {/* Dark overlays — top/bottom fade into site background, heavy center veil */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background via-black/70 to-background pointer-events-none" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-background/60 via-transparent to-background/60 pointer-events-none" />
+        {/* Gold vignette accent at bottom edge */}
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-[3]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6">
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               What We Offer
