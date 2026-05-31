@@ -498,7 +498,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0 }}>
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
               <Card className="bg-background border-border p-8 h-full">
                 <h3 className="font-heading text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Essential</h3>
                 <div className="mb-6"><span className="text-4xl font-bold">AED 599</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Month</span></div>
@@ -521,7 +521,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               </Card>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }} className="relative z-10 md:-my-4">
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }} className="relative z-10 md:-my-4">
               <div className="absolute -top-4 inset-x-0 flex justify-center">
                 <span className="bg-primary text-primary-foreground text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full shadow-lg">Most Popular &bull; Save 20%</span>
               </div>
@@ -536,6 +536,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Guest pass (1/month)</li>
                 </ul>
                 <Button
+                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
                   onClick={() =>
                     window.open(
                       "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Performance%20membership%20at%20HIITZONE%20Gym.",
@@ -548,7 +549,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               </Card>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }}>
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
               <Card className="bg-background border-border p-8 h-full">
                 <h3 className="font-heading text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Elite</h3>
                 <div className="mb-6"><span className="text-4xl font-bold">AED 4,999</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Year</span></div>
@@ -560,6 +561,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> VIP event invitations</li>
                 </ul>
                 <Button
+                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
                   onClick={() =>
                     window.open(
                       "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Elite%20membership%20at%20HIITZONE%20Gym.",
