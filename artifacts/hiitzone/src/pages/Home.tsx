@@ -831,7 +831,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
 
       {/* 16. FOOTER */}
       <footer className="bg-background pt-12 md:pt-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
+        <div className="max-w-7xl mx-auto px-5 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
           <div>
             <div className="font-heading text-4xl text-primary mb-6" style={{ letterSpacing: '0.08em' }}>
               HIITZONE
@@ -839,15 +839,6 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Dubai's elite high-intensity training facility. Uncompromising quality, elite coaching, and a community built on discipline and results.
             </p>
-          </div>
-
-          <div className="flex flex-col md:items-center">
-            <h4 className="font-semibold uppercase tracking-widest text-xs mb-6">Quick Links</h4>
-            <div className="flex flex-col space-y-3 text-muted-foreground text-sm uppercase tracking-widest">
-              {[['home','Home'],['about','About'],['membership','Membership'],['trainers','Trainers'],['contact','Contact']].map(([id, label]) => (
-                <button key={id} onClick={() => scrollTo(id)} className="hover:text-primary transition-colors text-left md:text-center">{label}</button>
-              ))}
-            </div>
           </div>
 
           <div className="flex flex-col md:items-end">
