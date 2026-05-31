@@ -264,7 +264,7 @@ export default function Home() {
               Discipline is the Foundation
             </h2>
             <p className="text-muted-foreground text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
-              HIITZONE isn't just a gym; it's a proving ground. We've stripped away the distractions to focus purely on performance, mindset, and unmatched results. In the heart of Business Bay, we forge the elite.
+              HIITZONE isn't just a gym; it's a proving ground. We've stripped away the distractions to focus purely on performance, mindset, and unmatched results. This is where discipline creates results — and results define you.
             </p>
 
             <div className="space-y-6">
