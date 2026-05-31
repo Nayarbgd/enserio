@@ -8,7 +8,7 @@ import afrozImg from "@assets/image_1780174766920.png";
 import bouchaImg from "@assets/image_1780174812055.png";
 import prajanImg from "@assets/image_1780174836450.png";
 import coachShehalaImg from "@assets/2026-05-31_01h05_32_1780178130753.png";
-import coachCharitaImg from "@assets/2026-05-31_01h04_44_1780178130755.png";
+const coachCharitaImg = "https://res.cloudinary.com/djepsudop/image/upload/v1780200255/ChatGPT_Image_31_may_2026_08_03_17_a.m._za9clf.png";
 import coachAlhamdImg from "@assets/2026-05-31_01h05_04_1780178130756.png";
 import coachSabryImg from "@assets/2026-05-31_01h05_19_1780178130756.png";
 import { Button } from "@/components/ui/button";
