@@ -414,7 +414,13 @@ export default function Home() {
                 </div>
                 <h3 className="font-heading text-2xl text-primary mb-1" style={{ letterSpacing: '0.06em' }}>{coach.name}</h3>
                 <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">{coach.role}</p>
-                <p className="text-xs text-primary/50 tracking-wide">{coach.handle}</p>
+                <a
+                  href={`https://instagram.com/${coach.handle.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary/50 tracking-wide hover:text-primary transition-colors"
+                  onClick={e => e.stopPropagation()}
+                >{coach.handle}</a>
               </motion.div>
             ))}
           </div>
