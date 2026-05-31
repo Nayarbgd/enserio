@@ -388,10 +388,10 @@ export default function Home() {
           {/* Training category tags */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-5 mb-14 md:mb-20">
             {[
-              { label: "Boxing Classes", icon: "🥊", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Boxing%20Classes%20en%20HIITZONE." },
-              { label: "Weight Training", icon: "🏋️", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Weight%20Training%20en%20HIITZONE." },
-              { label: "Cardio Exercise", icon: "⚡", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Cardio%20Exercise%20en%20HIITZONE." },
-              { label: "Personal Training", icon: "🎯", wa: "Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Personal%20Training%20en%20HIITZONE." },
+              { label: "Boxing Classes", icon: "🥊", wa: "Hi!%20I%20would%20like%20more%20information%20about%20Boxing%20Classes%20at%20HIITZONE." },
+              { label: "Weight Training", icon: "🏋️", wa: "Hi!%20I%20would%20like%20more%20information%20about%20Weight%20Training%20at%20HIITZONE." },
+              { label: "Cardio Exercise", icon: "⚡", wa: "Hi!%20I%20would%20like%20more%20information%20about%20Cardio%20Exercise%20at%20HIITZONE." },
+              { label: "Personal Training", icon: "🎯", wa: "Hi!%20I%20would%20like%20more%20information%20about%20Personal%20Training%20at%20HIITZONE." },
             ].map((cat, i) => (
               <motion.button
                 key={i}
