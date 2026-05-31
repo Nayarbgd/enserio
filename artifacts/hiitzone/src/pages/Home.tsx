@@ -356,7 +356,7 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url(https://res.cloudinary.com/djepsudop/image/upload/v1780266370/d417e080-6281-4e5c-b8f4-72bcd39876a5_cmnrdu.png)`,
-              filter: "grayscale(100%) contrast(1.15) brightness(0.38)",
+              filter: "grayscale(100%) contrast(1.1) brightness(0.62)",
             }}
           />
         </motion.div>
@@ -369,9 +369,9 @@ export default function Home() {
             backgroundSize: '128px 128px',
           }}
         />
-        {/* Dark overlays — top/bottom fade into site background, heavy center veil */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background via-black/70 to-background pointer-events-none" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-background/60 via-transparent to-background/60 pointer-events-none" />
+        {/* Dark overlays — top/bottom fade into site background, lighter center veil */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background/90 via-black/30 to-background/90 pointer-events-none" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-background/50 via-transparent to-background/50 pointer-events-none" />
         {/* Gold vignette accent at bottom edge */}
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-[3]" />
 
