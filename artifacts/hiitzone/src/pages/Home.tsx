@@ -141,44 +141,99 @@ export default function Home() {
 
       {/* 3. HERO SECTION */}
       <section id="home" className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${IMAGES.hero})` }} />
+
+        {/* Darker cinematic overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/88 via-black/72 to-background" />
+
+        {/* Ambient top glow */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent pointer-events-none" />
+
+        {/* Cinematic gold glow behind "POWER WITHIN" */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[500px] md:w-[900px] h-[180px] md:h-[280px] rounded-full bg-primary/10 blur-[80px] md:blur-[130px] translate-y-[30px] md:translate-y-[60px]" />
+        </div>
+
+        {/* Subtle film grain */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${IMAGES.hero})` }}
+          className="absolute inset-0 z-[1] pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '200px 200px',
+          }}
         />
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/75 via-black/60 to-background" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 pt-16 pb-16 md:pt-20 md:pb-32 w-full text-center flex flex-col items-center">
-          <motion.div {...fadeUp}>
-            <h1 className="text-5xl sm:text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-6 md:mb-8" style={{ letterSpacing: '0.06em' }}>
-              <span className="block text-white drop-shadow-2xl">Discover Your</span>
-              <span className="block text-primary drop-shadow-2xl">Power Within</span>
-            </h1>
-            <p className="text-sm md:text-xl text-white/70 font-medium tracking-[0.2em] md:tracking-[0.25em] uppercase mb-10 md:mb-14 max-w-xl mx-auto">
-              Elite Fitness Experience in Dubai
-            </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-20 w-full max-w-sm sm:max-w-none mx-auto">
-              <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
-                Start Your Transformation
-              </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest border-2 hover:bg-white/5" onClick={() => scrollTo('membership')} data-testid="hero-secondary-btn">
-                View Memberships
-              </Button>
-            </div>
+          {/* Headline — staggered entrance */}
+          <motion.h1
+            className="text-5xl sm:text-7xl md:text-[110px] lg:text-[150px] font-heading leading-none mb-6 md:mb-8"
+            style={{ letterSpacing: '0.06em' }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span
+              className="block text-white"
+              style={{ textShadow: '0 2px 60px rgba(0,0,0,0.9)' }}
+            >
+              Discover Your
+            </span>
+            <span
+              className="block text-primary"
+              style={{
+                textShadow: '0 0 60px rgba(201,168,76,0.55), 0 0 140px rgba(201,168,76,0.25), 0 2px 40px rgba(0,0,0,0.9)',
+                filter: 'drop-shadow(0 0 30px rgba(201,168,76,0.3))',
+              }}
+            >
+              Power Within
+            </span>
+          </motion.h1>
 
-            <div className="grid grid-cols-3 gap-4 md:gap-20 pt-8 md:pt-12 border-t border-white/15 max-w-3xl mx-auto w-full">
-              {[
-                { num: "500+", label: "Members" },
-                { num: "15+", label: "Expert Trainers" },
-                { num: "ELITE", label: "Premium Equipment" }
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-3xl sm:text-5xl md:text-6xl font-heading text-primary mb-1 md:mb-2" style={{ letterSpacing: '0.06em' }}>{stat.num}</div>
-                  <div className="text-[10px] sm:text-xs tracking-[0.15em] md:tracking-[0.22em] uppercase text-white/50">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Subtitle */}
+          <motion.p
+            className="text-sm md:text-xl text-white/65 font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase mb-10 md:mb-14 max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Elite Fitness Experience in Dubai
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 md:mb-20 w-full max-w-sm sm:max-w-none mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest shadow-[0_0_30px_rgba(201,168,76,0.25)]" onClick={() => scrollTo('membership')} data-testid="hero-primary-btn">
+              Start Your Transformation
+            </Button>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-xs md:text-sm font-semibold uppercase tracking-widest border-2 hover:bg-white/5" onClick={() => scrollTo('membership')} data-testid="hero-secondary-btn">
+              View Memberships
+            </Button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-3 gap-4 md:gap-20 pt-8 md:pt-12 border-t border-white/10 max-w-3xl mx-auto w-full"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {[
+              { num: "500+", label: "Members" },
+              { num: "15+", label: "Expert Trainers" },
+              { num: "ELITE", label: "Premium Equipment" }
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl sm:text-5xl md:text-6xl font-heading text-primary mb-1 md:mb-2" style={{ letterSpacing: '0.06em', textShadow: '0 0 30px rgba(201,168,76,0.3)' }}>{stat.num}</div>
+                <div className="text-[10px] sm:text-xs tracking-[0.15em] md:tracking-[0.22em] uppercase text-white/45">{stat.label}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
