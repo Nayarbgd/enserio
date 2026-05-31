@@ -508,7 +508,6 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
                   <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Locker room access</li>
                 </ul>
                 <Button
-                  variant="outline"
                   className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
                   onClick={() =>
                     window.open(
