@@ -693,7 +693,7 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-0 right-0 flex justify-center">
                 <a
-                  href="https://maps.google.com/?q=35WH%2BCC+Dubai"
+                  href="https://maps.app.goo.gl/V3VvFrCMmSkw5vA69"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-black font-semibold uppercase tracking-widest text-xs px-6 py-3 rounded shadow-lg hover:brightness-110 transition-all"
