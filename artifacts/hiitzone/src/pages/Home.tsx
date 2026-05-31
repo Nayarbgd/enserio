@@ -43,9 +43,10 @@ const IMAGES = {
   coachSarah: "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=500&q=80",
   coachDavid: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=500&q=80",
   coachAria: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=500&q=80",
-  facilityMain: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1400&q=80",
-  facilityHiit: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=700&q=80",
-  facilityRecovery: "https://images.unsplash.com/photo-1581009137042-c6173ad8af59?auto=format&fit=crop&w=700&q=80",
+  facilityMain: "https://res.cloudinary.com/djepsudop/image/upload/v1780201489/bab68424-bfc2-4808-8c18-c004ffc676cc_ilnqsx.png",
+  facilityHiit: "https://res.cloudinary.com/djepsudop/image/upload/v1780201486/f8deda0b-0cbb-4b31-93fb-b05067177f74_ni6jqn.png",
+  facilityRecovery: "https://res.cloudinary.com/djepsudop/image/upload/v1780201478/2bc63258-f2ec-4b30-a390-e9b2b91b09b4_ngritr.png",
+  facilityStrength: "https://res.cloudinary.com/djepsudop/image/upload/v1780201477/14943aba-9957-4d06-921f-d873cb171738_bh8wfc.png",
   videoBg: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1920&q=80",
   finalCta: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1920&q=80",
 };
@@ -496,29 +497,37 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             </p>
           </div>
 
-          <motion.div {...fadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[580px]">
-            <div className="lg:col-span-8 h-64 sm:h-80 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
-              <img src={IMAGES.facilityMain} alt="HIITZONE Main Floor" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 scale-100" />
+          <motion.div {...fadeUp} className="grid grid-cols-2 lg:grid-cols-12 gap-4">
+            {/* Row 1 */}
+            <div className="col-span-2 lg:col-span-8 h-56 sm:h-72 lg:h-[380px] rounded-lg border border-white/5 relative group overflow-hidden">
+              <img src={IMAGES.facilityMain} alt="HIITZONE Gym" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 scale-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-5 left-5 md:bottom-8 md:left-8">
+              <div className="absolute bottom-5 left-5 md:bottom-7 md:left-7">
                 <h3 className="font-heading text-2xl md:text-4xl mb-1" style={{ letterSpacing: '0.06em' }}>Main Floor</h3>
-                <p className="text-muted-foreground text-xs tracking-widest uppercase">Custom Rogue Rigs & Free Weights</p>
+                <p className="text-muted-foreground text-xs tracking-widest uppercase">Custom Rigs & Free Weights</p>
               </div>
             </div>
-            <div className="lg:col-span-4 lg:h-full grid grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="h-44 sm:h-52 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
-                <img src={IMAGES.facilityHiit} alt="HIIT Studio" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
-                  <h3 className="font-heading text-xl md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>HIIT Studio</h3>
-                </div>
+            <div className="col-span-1 lg:col-span-4 h-56 sm:h-72 lg:h-[380px] rounded-lg border border-white/5 relative group overflow-hidden">
+              <img src={IMAGES.facilityHiit} alt="HIITZONE Training" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
+                <h3 className="font-heading text-lg md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>HIIT Studio</h3>
               </div>
-              <div className="h-44 sm:h-52 lg:h-full rounded-lg border border-white/5 relative group overflow-hidden">
-                <img src={IMAGES.facilityRecovery} alt="Recovery Zone" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
-                  <h3 className="font-heading text-xl md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>Recovery Zone</h3>
-                </div>
+            </div>
+            {/* Row 2 */}
+            <div className="col-span-1 lg:col-span-4 h-44 sm:h-56 lg:h-[260px] rounded-lg border border-white/5 relative group overflow-hidden">
+              <img src={IMAGES.facilityRecovery} alt="HIITZONE Recovery" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5">
+                <h3 className="font-heading text-lg md:text-2xl text-primary" style={{ letterSpacing: '0.06em' }}>Recovery Zone</h3>
+              </div>
+            </div>
+            <div className="col-span-2 lg:col-span-8 h-44 sm:h-56 lg:h-[260px] rounded-lg border border-white/5 relative group overflow-hidden">
+              <img src={IMAGES.facilityStrength} alt="HIITZONE Strength" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 scale-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-7">
+                <h3 className="font-heading text-lg md:text-2xl mb-0.5" style={{ letterSpacing: '0.06em' }}>Strength Zone</h3>
+                <p className="text-muted-foreground text-xs tracking-widest uppercase">Elite Equipment & Free Weights</p>
               </div>
             </div>
           </motion.div>
