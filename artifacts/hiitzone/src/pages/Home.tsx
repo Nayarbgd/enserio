@@ -345,13 +345,40 @@ export default function Home() {
       {/* 6. TRAINING PROGRAMS */}
       <section className="py-16 md:py-32 bg-secondary/30 border-t border-border">
         <div className="max-w-7xl mx-auto px-5 md:px-6">
-          <div className="text-center mb-12 md:mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
               What We Offer
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading leading-none" style={{ letterSpacing: '0.04em' }}>
               Programs Built For Results
             </h2>
+          </div>
+
+          {/* Training category tags */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-14 md:mb-20">
+            {[
+              { label: "Boxing Classes", icon: "🥊" },
+              { label: "Weight Training", icon: "🏋️" },
+              { label: "Cardio Exercise", icon: "⚡" },
+              { label: "Personal Training", icon: "🎯" },
+            ].map((cat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                whileHover={{ y: -3, scale: 1.04 }}
+                className="group cursor-default"
+              >
+                <div className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-primary/25 bg-card hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(201,168,76,0.18)] transition-all duration-300">
+                  <span className="text-base leading-none">{cat.icon}</span>
+                  <span className="font-semibold uppercase tracking-[0.18em] text-xs text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                    {cat.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
@@ -611,87 +638,106 @@ href="https://www.google.com/maps/place/Hiitzone+Gym+in+Barsha+Heights/@25.09606
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto items-center">
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
-              <Card className="bg-background border-border p-6 md:p-8 h-full">
-                <h3 className="font-heading text-2xl md:text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Essential</h3>
-                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-4xl font-bold">AED 599</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Month</span></div>
-                <ul className="space-y-4 mb-8 text-sm text-muted-foreground">
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Full facility access</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> 4 Group classes/month</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Locker room access</li>
-                </ul>
-                <Button
-                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Essential%20membership%20at%20HIITZONE%20Gym.",
-                      "_blank"
-                    )
-                  }
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+            {[
+              {
+                label: "1 Month",
+                price: "AED 259",
+                period: "/ month",
+                popular: false,
+                features: ["Full facility access", "All group classes", "Locker room access", "Cardio & weights zones"],
+                waMsg: "Hi!%20I%20am%20interested%20in%20the%201%20Month%20membership%20at%20HIITZONE%20Gym.",
+              },
+              {
+                label: "3 Months",
+                price: "AED 589",
+                period: "/ 3 months",
+                popular: true,
+                features: ["Full facility access", "All group classes", "Locker room access", "Cardio & weights zones", "Priority booking"],
+                waMsg: "Hi!%20I%20am%20interested%20in%20the%203%20Month%20membership%20at%20HIITZONE%20Gym.",
+              },
+              {
+                label: "6 Months",
+                price: "AED 869",
+                period: "/ 6 months",
+                popular: false,
+                features: ["Full facility access", "All group classes", "Locker room access", "Cardio & weights zones", "Priority booking", "Guest pass (1/month)"],
+                waMsg: "Hi!%20I%20am%20interested%20in%20the%206%20Month%20membership%20at%20HIITZONE%20Gym.",
+              },
+              {
+                label: "1 Year",
+                price: "AED 1,248",
+                period: "/ year",
+                popular: false,
+                features: ["Full facility access", "All group classes", "Locker room access", "Cardio & weights zones", "Priority booking", "Guest pass (2/month)", "Dedicated locker"],
+                waMsg: "Hi!%20I%20am%20interested%20in%20the%201%20Year%20membership%20at%20HIITZONE%20Gym.",
+              },
+            ].map((plan, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                style={{ transformOrigin: 'center' }}
+                className="relative flex"
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 inset-x-0 flex justify-center z-10">
+                    <span className="bg-primary text-primary-foreground text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full shadow-lg">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <Card
+                  className={`w-full flex flex-col p-6 md:p-7 transition-all duration-300 ${
+                    plan.popular
+                      ? "bg-card border-primary shadow-[0_0_40px_rgba(201,168,76,0.20)] hover:shadow-[0_0_60px_rgba(201,168,76,0.32)]"
+                      : "bg-background border-border hover:border-primary/40 hover:shadow-[0_0_30px_rgba(201,168,76,0.10)]"
+                  }`}
                 >
-                  Select Essential
-                </Button>
-              </Card>
-            </motion.div>
+                  <div className="mb-5">
+                    <h3
+                      className={`font-heading text-2xl md:text-3xl mb-3 ${plan.popular ? "text-primary" : "text-muted-foreground"}`}
+                      style={{ letterSpacing: '0.06em' }}
+                    >
+                      {plan.label}
+                    </h3>
+                    <div className="flex items-end gap-2">
+                      <span className={`font-bold leading-none ${plan.popular ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"}`}>
+                        {plan.price}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-xs uppercase tracking-widest mt-1">{plan.period}</p>
+                  </div>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }} className="relative z-10 md:-my-4">
-              <div className="absolute -top-4 inset-x-0 flex justify-center">
-                <span className="bg-primary text-primary-foreground text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full shadow-lg">Most Popular &bull; Save 20%</span>
-              </div>
-              <Card className="bg-card border-primary shadow-[0_0_50px_rgba(201,168,76,0.18)] p-6 md:p-8 h-full">
-                <h3 className="font-heading text-2xl md:text-4xl text-primary mb-2" style={{ letterSpacing: '0.06em' }}>Performance</h3>
-                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-5xl font-bold">AED 1,499</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 3 Months</span></div>
-                <ul className="space-y-4 mb-8 text-sm">
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited facility access</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited group classes</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> 1 Personal training session/mo</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Premium locker & towel service</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Guest pass (1/month)</li>
-                </ul>
-                <Button
-                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Performance%20membership%20at%20HIITZONE%20Gym.",
-                      "_blank"
-                    )
-                  }
-                >
-                  Select Performance
-                </Button>
-              </Card>
-            </motion.div>
+                  <ul className="space-y-3 mb-8 text-sm flex-1">
+                    {plan.features.map((f, fi) => (
+                      <li key={fi} className={`flex gap-2 items-start ${plan.popular ? "" : "text-muted-foreground"}`}>
+                        <Target className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
 
-            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} whileHover={{ scale: 1.04 }} style={{ transformOrigin: 'center' }}>
-              <Card className="bg-background border-border p-6 md:p-8 h-full">
-                <h3 className="font-heading text-2xl md:text-3xl text-muted-foreground mb-2" style={{ letterSpacing: '0.06em' }}>Elite</h3>
-                <div className="mb-5 md:mb-6"><span className="text-3xl md:text-4xl font-bold">AED 4,999</span> <span className="text-muted-foreground text-xs uppercase tracking-widest">/ 1 Year</span></div>
-                <ul className="space-y-4 mb-8 text-sm text-muted-foreground">
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Unlimited everything</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Priority class booking</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Dedicated private locker</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> Recovery zone access</li>
-                  <li className="flex gap-2 items-center"><Target className="w-4 h-4 text-primary shrink-0"/> VIP event invitations</li>
-                </ul>
-                <Button
-                  className="w-full h-12 uppercase font-semibold tracking-widest text-sm"
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/971568445703?text=Hi!%20I%20am%20interested%20in%20the%20Elite%20membership%20at%20HIITZONE%20Gym.",
-                      "_blank"
-                    )
-                  }
-                >
-                  Select Elite
-                </Button>
-              </Card>
-            </motion.div>
+                  <Button
+                    className={`w-full h-12 uppercase font-semibold tracking-widest text-sm mt-auto transition-all duration-300 ${
+                      plan.popular
+                        ? "shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_35px_rgba(201,168,76,0.5)]"
+                        : "bg-secondary hover:bg-primary hover:text-black text-foreground"
+                    }`}
+                    variant={plan.popular ? "default" : "secondary"}
+                    onClick={() => window.open(`https://wa.me/971568445703?text=${plan.waMsg}`, "_blank")}
+                  >
+                    Select Plan
+                  </Button>
+                </Card>
+              </motion.div>
+            ))}
           </div>
 
           <div className="text-center mt-12">
             <p className="text-primary font-semibold tracking-widest uppercase text-xs drop-shadow-[0_0_10px_rgba(201,168,76,0.5)]">
-              Only 12 Elite memberships remaining this month.
+              Founding member pricing — locked for the life of your active membership.
             </p>
           </div>
         </div>
