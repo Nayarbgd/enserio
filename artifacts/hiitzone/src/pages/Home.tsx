@@ -428,10 +428,6 @@ export default function Home() {
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-[3]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6">
-          <div className="text-center mb-12 md:mb-16">
-
-      <section className="py-16 md:py-32 bg-secondary/30 border-t border-border perf-section">
-        <div className="max-w-7xl mx-auto px-5 md:px-6">
           <div className="text-center mb-12 md:mb-20">
 
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 text-primary text-xs font-semibold tracking-[0.22em] uppercase rounded-full">
