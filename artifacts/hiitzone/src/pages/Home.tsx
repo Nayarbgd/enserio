@@ -398,33 +398,32 @@ export default function Home() {
 
       <section className="relative py-16 md:py-32 overflow-hidden border-t border-border perf-section">
         {/* Cinematic background image */}
+        {/* Background image — GPU-promoted layer, zoom fires once only */}
         <motion.div
           className="absolute inset-0 z-0"
           initial={{ scale: 1.08 }}
           whileInView={{ scale: 1 }}
-          viewport={{ once: false, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 2.4, ease: "easeOut" }}
+          style={{ willChange: "transform" }}
         >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url(https://res.cloudinary.com/djepsudop/image/upload/v1780266370/d417e080-6281-4e5c-b8f4-72bcd39876a5_cmnrdu.png)`,
               filter: "grayscale(100%) contrast(1.1) brightness(0.62)",
+              transform: "translateZ(0)",
             }}
           />
         </motion.div>
-        {/* Grain texture overlay */}
+        {/* Single merged overlay — top/bottom site-colour fade + side vignette */}
         <div
-          className="absolute inset-0 z-[1] opacity-[0.18] pointer-events-none"
+          className="absolute inset-0 z-[1] pointer-events-none"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: '128px 128px',
+            background:
+              "linear-gradient(to bottom, hsl(var(--background)/0.9) 0%, rgba(0,0,0,0.28) 40%, rgba(0,0,0,0.28) 60%, hsl(var(--background)/0.9) 100%), linear-gradient(to right, hsl(var(--background)/0.45) 0%, transparent 30%, transparent 70%, hsl(var(--background)/0.45) 100%)",
           }}
         />
-        {/* Dark overlays — top/bottom fade into site background, lighter center veil */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background/90 via-black/30 to-background/90 pointer-events-none" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-r from-background/50 via-transparent to-background/50 pointer-events-none" />
         {/* Gold vignette accent at bottom edge */}
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent z-[3]" />
 
